@@ -15,7 +15,7 @@ class calculator(loader.Module):
         a=b.split(" ")
         if len(a)==2:
             if a[0].isdigit() and a[1].isdigit():
-                await utils.answer(message, f"сумма{a[0]} и {a[1]} =", a[1]+a[0])
+                await utils.answer(message, f"сумма{a[0]} и {a[1]} = {a[1]+a[0]}")
             else:
                 await utils.answer(message, f"введены не числа!")
         else:
