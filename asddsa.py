@@ -11,13 +11,13 @@ class hikka1(loader.Module):
         """включить замену"""
         global turn
         turn = True
-        await utils.reply(message, "замена включена")
+        await utils.answer(message, "замена включена")
 
     async def offcmd(self, message):
         """выключить замену"""
         global turn
         turn = False
-        await utils.reply(message, "замена выключена")
+        await utils.answer(message, "замена выключена")
 
     async def watcher(self, message):
         """Перехватывает ВСЕ сообщения"""
