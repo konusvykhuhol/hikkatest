@@ -1,9 +1,13 @@
-from telethon import loader, utils
+# example_module.py
+from .. import loader, utils  # type: ignore
 
 
 @loader.tds
-class MyModule(loader.Module):
-    strings = {"name": "TestModule"}
+class ExampleModule(loader.Module):
+    """Описание модуля"""  # ЭТО ОБЯЗАТЕЛЬНО!
+
+    strings = {"name": "ExampleModule"}  # И ЭТО ТОЖЕ!
 
     async def testcmd(self, message):
-        await utils.answer(message, "Работает!")
+        """Тестовая команда"""
+        await utils.answer(message, "✅ Модуль работает!")
