@@ -14,7 +14,7 @@ class calculator(loader.Module):
         b=utils.get_args_raw(message)
         a=b.split(" ")
         if len(a)==2:
-            if a[1].typeof()==int and a[2].typeof()==int:
+            if type(a[1])==int and type(a[2])==int:
                 await utils.answer(message, f"сумма{a[1]} и {a[2]} =", a[1]+a[2])
             else:
                 await utils.answer(message, f"введены не числа!")
