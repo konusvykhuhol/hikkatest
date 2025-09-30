@@ -27,12 +27,12 @@ class calculator(loader.Module):
         a = b.split(" ")
         if len(a) == 2:
             if a[0].isdigit() and a[1].isdigit():
-                await utils.answer(message, f"разность {a[0]} и {a[1]} = {int(a[1]) - int(a[0])}")
+                await utils.answer(message, f"разность {a[0]} и {a[1]} = {int(a[0]) - int(a[1])}")
             else:
                 await utils.answer(message, f"введены не числа!")
         else:
             await utils.answer(message, f"неверный формат!")
-            
+
     async def proizvcmd(self, message):
         """"произведение двух чисел. вводить в формате .proizv [число] [число]"""
         b = utils.get_args_raw(message)
