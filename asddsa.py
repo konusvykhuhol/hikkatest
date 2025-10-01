@@ -1,27 +1,29 @@
 # example_module.py
 from .. import loader, utils  # type: ignore
 
-turn = False
 @loader.tds
 class hikka1(loader.Module):
     """модуль для замены да на пизда"""
 
+
     strings = {"name": "пизда"}
+
+    def __init__(self):
+        self.turn = False
+
     async def oncmd(self, message):
         """включить замену"""
-        global turn
-        turn = True
+        self.turn = True
         await utils.answer(message, "замена включена")
 
     async def offcmd(self, message):
         """выключить замену"""
-        global turn
-        turn = False
+        self.turn = False
         await utils.answer(message, "замена выключена")
 
     async def watcher(self, message):
         """Перехватывает ВСЕ сообщения"""
-        if not self.enabled:
+        if not self.turn:
             return
 
         if not getattr(message, "text", None) or message.out:
